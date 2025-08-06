@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://mingyeonghyeon.github.io/React/",
+  "homepage": "https://minkyeonghyeon.github.io/Aje/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
