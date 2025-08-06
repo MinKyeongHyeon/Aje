@@ -1,7 +1,7 @@
 /* 80년대 MS-DOS 스타일 + 한글 명조 폰트 */
 body {
   background-color: #000080;
-  color: #00FF00;
+  color: #00ff00;
   font-family: "Noto Serif KR", "Times New Roman", serif;
   margin: 0;
   padding: 0;
@@ -10,29 +10,24 @@ body {
 
 #root {
   background-color: #000080;
-  color: #00FF00;
+  color: #00ff00;
   min-height: 100vh;
   font-family: "Noto Serif KR", "Times New Roman", serif;
 }
 
 .app-container {
   background-color: #000080;
-  color: #00FF00;
+  color: #00ff00;
   text-align: center;
   padding: 20px;
   min-height: 100vh;
   font-family: "Noto Serif KR", "Times New Roman", serif;
-  border: 2px solid #00FF00;
-  margin: 0 auto;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border: 2px solid #00ff00;
+  margin: 10px;
 }
 
 .app-title {
-  color: #FFFF00;
+  color: #ffff00;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -48,12 +43,26 @@ body {
   font-family: "Noto Serif KR", "Times New Roman", serif;
 }
 
+.smile-guy {
+  color: #FFFF00;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 20px 0;
+  text-shadow: 1px 1px 0px #008000;
+  white-space: pre;
+  background-color: #000040;
+  padding: 15px;
+  border: 1px solid #00FF00;
+  border-radius: 0;
+}
+
 .random-button {
   padding: 15px 30px;
   font-size: 18px;
   background-color: #008000;
-  color: #FFFF00;
-  border: 2px solid #00FF00;
+  color: #ffff00;
+  border: 2px solid #00ff00;
   border-radius: 0;
   cursor: pointer;
   margin-bottom: 20px;
@@ -64,15 +73,15 @@ body {
 }
 
 .random-button:hover {
-  background-color: #00FF00;
+  background-color: #00ff00;
   color: #000080;
-  border: 2px solid #FFFF00;
+  border: 2px solid #ffff00;
 }
 
 .joke-container {
   margin: 20px auto;
   padding: 20px;
-  border: 2px solid #00FF00;
+  border: 2px solid #00ff00;
   border-radius: 0;
   background-color: #000040;
   max-width: 600px;
@@ -80,7 +89,7 @@ body {
 }
 
 .question {
-  color: #FFFF00;
+  color: #ffff00;
   margin-bottom: 15px;
   font-family: "Noto Serif KR", "Times New Roman", serif;
   font-size: 18px;
@@ -91,8 +100,8 @@ body {
   padding: 10px 20px;
   font-size: 16px;
   background-color: #800080;
-  color: #FFFF00;
-  border: 2px solid #FF00FF;
+  color: #ffff00;
+  border: 2px solid #ff00ff;
   border-radius: 0;
   cursor: pointer;
   font-family: "Noto Serif KR", "Times New Roman", serif;
@@ -100,21 +109,21 @@ body {
 }
 
 .answer-button:hover {
-  background-color: #FF00FF;
+  background-color: #ff00ff;
   color: #000080;
-  border: 2px solid #FFFF00;
+  border: 2px solid #ffff00;
 }
 
 .answer-container {
   padding: 15px;
   background-color: #004000;
-  border: 2px solid #00FF00;
+  border: 2px solid #00ff00;
   border-radius: 0;
   margin-top: 10px;
 }
 
 .answer {
-  color: #00FFFF;
+  color: #00ffff;
   font-size: 20px;
   margin: 0;
   font-family: "Noto Serif KR", "Times New Roman", serif;
@@ -123,7 +132,7 @@ body {
 
 .joke-count {
   margin-top: 30px;
-  color: #00FFFF;
+  color: #00ffff;
   font-family: "Noto Serif KR", "Times New Roman", serif;
   font-size: 14px;
 }
@@ -183,10 +192,24 @@ body {
 }
 
 .app-subtitle {
-  color: #00ffff;
+  color: #00FFFF;
   margin-bottom: 30px;
   font-size: 16px;
   font-family: "Noto Serif KR", "Times New Roman", serif;
+}
+
+.smile-guy {
+  color: #FFFF00;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 20px 0;
+  text-shadow: 1px 1px 0px #008000;
+  white-space: pre;
+  background-color: #000040;
+  padding: 15px;
+  border: 1px solid #00FF00;
+  border-radius: 0;
 }
 
 .random-button {
