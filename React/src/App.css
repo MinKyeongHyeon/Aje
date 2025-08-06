@@ -1,4 +1,5 @@
-/* 80s MS-DOS Style Unified CSS */
+/* 80s MS-DOS Style CSS for Korean Dad Joke App */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
 
 /* Global reset and base settings */
 * {
@@ -39,21 +40,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-타일 + 한글 명조 폰트 */ body {
-  background-color: #000080;
-  color: #00ff00;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-}
-
-#root {
-  background-color: #000080;
-  color: #00ff00;
-  min-height: 100vh;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-}
 
 .app-container {
   background-color: #000080;
@@ -64,6 +50,8 @@ body {
   font-family: "Noto Serif KR", "Times New Roman", serif;
   border: 2px solid #00ff00;
   margin: 10px;
+  max-width: 800px;
+  width: 100%;
 }
 
 .app-title {
@@ -108,226 +96,110 @@ body {
   margin-bottom: 20px;
   font-family: "Noto Serif KR", "Times New Roman", serif;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  text-shadow: 1px 1px 0px #004000;
+  transition: all 0.2s;
 }
 
 .random-button:hover {
-  background-color: #00ff00;
-  color: #000080;
-  border: 2px solid #ffff00;
+  background-color: #00a000;
+  color: #ffffff;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.random-button:active {
+  transform: translateY(2px);
 }
 
 .joke-container {
-  margin: 20px auto;
+  margin: 30px 0;
   padding: 20px;
-  border: 2px solid #00ff00;
-  border-radius: 0;
-  background-color: #000040;
-  max-width: 600px;
-  box-shadow: 4px 4px 0px #008000;
-}
-
-.question {
-  color: #ffff00;
-  margin-bottom: 15px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.answer-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #800080;
-  color: #ffff00;
-  border: 2px solid #ff00ff;
-  border-radius: 0;
-  cursor: pointer;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-weight: bold;
-}
-
-.answer-button:hover {
-  background-color: #ff00ff;
-  color: #000080;
-  border: 2px solid #ffff00;
-}
-
-.answer-container {
-  padding: 15px;
-  background-color: #004000;
-  border: 2px solid #00ff00;
-  border-radius: 0;
-  margin-top: 10px;
-}
-
-.answer {
-  color: #00ffff;
-  font-size: 20px;
-  margin: 0;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-weight: bold;
-}
-
-.joke-count {
-  margin-top: 30px;
-  color: #00ffff;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-size: 14px;
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* 80년대 MS-DOS 스타일 + 한글 명조 폰트 */
-body {
-  background-color: #000080;
-  color: #00ff00;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-}
-
-.app-container {
-  background-color: #000080;
-  color: #00ff00;
-  text-align: center;
-  padding: 20px;
-  min-height: 100vh;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  border: 2px solid #00ff00;
-  margin: 10px;
-}
-
-.app-title {
-  color: #ffff00;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 0px #008000;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  letter-spacing: 2px;
-}
-
-.app-subtitle {
-  color: #00ffff;
-  margin-bottom: 30px;
-  font-size: 16px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-}
-
-.smile-guy {
-  color: #ffff00;
-  font-family: "Courier New", monospace;
-  font-size: 14px;
-  line-height: 1.2;
-  margin: 20px 0;
-  text-shadow: 1px 1px 0px #008000;
-  white-space: pre;
-  background-color: #000040;
-  padding: 15px;
   border: 1px solid #00ff00;
+  background-color: #000040;
   border-radius: 0;
 }
 
-.random-button {
-  padding: 15px 30px;
-  font-size: 18px;
-  background-color: #008000;
-  color: #ffff00;
-  border: 2px solid #00ff00;
-  border-radius: 0;
-  cursor: pointer;
+.joke-question {
+  font-size: 20px;
+  color: #00ffff;
   margin-bottom: 20px;
   font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  line-height: 1.6;
 }
 
-.random-button:hover {
-  background-color: #00ff00;
-  color: #000080;
-  border: 2px solid #ffff00;
+.answer-section {
+  margin-top: 20px;
 }
 
-.joke-container {
-  margin: 20px auto;
-  padding: 20px;
-  border: 2px solid #00ff00;
-  border-radius: 0;
-  background-color: #000040;
-  max-width: 600px;
-  box-shadow: 4px 4px 0px #008000;
-}
-
-.question {
-  color: #ffff00;
-  margin-bottom: 15px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.answer-button {
-  padding: 10px 20px;
+.show-answer-button {
+  padding: 10px 25px;
   font-size: 16px;
   background-color: #800080;
   color: #ffff00;
   border: 2px solid #ff00ff;
   border-radius: 0;
   cursor: pointer;
+  margin-bottom: 15px;
   font-family: "Noto Serif KR", "Times New Roman", serif;
   font-weight: bold;
+  text-shadow: 1px 1px 0px #400040;
+  transition: all 0.2s;
 }
 
-.answer-button:hover {
-  background-color: #ff00ff;
-  color: #000080;
-  border: 2px solid #ffff00;
+.show-answer-button:hover {
+  background-color: #a000a0;
+  box-shadow: 0 0 8px #ff00ff;
 }
 
-.answer-container {
+.joke-answer {
+  font-size: 18px;
+  color: #ffff00;
+  font-weight: bold;
+  margin-top: 15px;
   padding: 15px;
   background-color: #004000;
-  border: 2px solid #00ff00;
+  border: 1px solid #00ff00;
   border-radius: 0;
-  margin-top: 10px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  text-shadow: 1px 1px 0px #002000;
+  line-height: 1.6;
 }
 
-.answer {
-  color: #00ffff;
-  font-size: 20px;
-  margin: 0;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-weight: bold;
+/* Retro blinking effect for title */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.7; }
 }
 
-.joke-count {
-  margin-top: 30px;
-  color: #00ffff;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-size: 14px;
+.app-title::before {
+  content: ">>> ";
+  animation: blink 1s infinite;
+}
+
+.app-title::after {
+  content: " <<<";
+  animation: blink 1s infinite;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .app-container {
+    margin: 5px;
+    padding: 15px;
+  }
+  
+  .app-title {
+    font-size: 20px;
+  }
+  
+  .joke-question {
+    font-size: 18px;
+  }
+  
+  .joke-answer {
+    font-size: 16px;
+  }
+  
+  .smile-guy {
+    font-size: 12px;
+  }
 }
