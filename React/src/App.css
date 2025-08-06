@@ -1,0 +1,160 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* 80년대 MS-DOS 스타일 + 한글 명조 폰트 */
+body {
+  background-color: #000080;
+  color: #00ff00;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.app-container {
+  background-color: #000080;
+  color: #00ff00;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  border: 2px solid #00ff00;
+  margin: 10px;
+}
+
+.app-title {
+  color: #ffff00;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 0px #008000;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  letter-spacing: 2px;
+}
+
+.app-subtitle {
+  color: #00ffff;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+}
+
+.random-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #008000;
+  color: #ffff00;
+  border: 2px solid #00ff00;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.random-button:hover {
+  background-color: #00ff00;
+  color: #000080;
+  border: 2px solid #ffff00;
+}
+
+.joke-container {
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #00ff00;
+  border-radius: 0;
+  background-color: #000040;
+  max-width: 600px;
+  box-shadow: 4px 4px 0px #008000;
+}
+
+.question {
+  color: #ffff00;
+  margin-bottom: 15px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.answer-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #800080;
+  color: #ffff00;
+  border: 2px solid #ff00ff;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+}
+
+.answer-button:hover {
+  background-color: #ff00ff;
+  color: #000080;
+  border: 2px solid #ffff00;
+}
+
+.answer-container {
+  padding: 15px;
+  background-color: #004000;
+  border: 2px solid #00ff00;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.answer {
+  color: #00ffff;
+  font-size: 20px;
+  margin: 0;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+}
+
+.joke-count {
+  margin-top: 30px;
+  color: #00ffff;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-size: 14px;
+}
