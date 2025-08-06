@@ -150,6 +150,26 @@ body {
   box-shadow: 0 0 8px #ff00ff;
 }
 
+.answer-button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #800080;
+  color: #ffff00;
+  border: 2px solid #ff00ff;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px #400040;
+  transition: all 0.2s;
+}
+
+.answer-button:hover {
+  background-color: #a000a0;
+  box-shadow: 0 0 8px #ff00ff;
+}
+
 .joke-answer {
   font-size: 18px;
   color: #ffff00;
@@ -162,6 +182,39 @@ body {
   font-family: "Noto Serif KR", "Times New Roman", serif;
   text-shadow: 1px 1px 0px #002000;
   line-height: 1.6;
+}
+
+.question {
+  font-size: 20px;
+  color: #00ffff;
+  margin-bottom: 20px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.answer-container {
+  padding: 15px;
+  background-color: #004000;
+  border: 1px solid #00ff00;
+  border-radius: 0;
+  margin-top: 15px;
+}
+
+.answer {
+  font-size: 18px;
+  color: #ffff00;
+  font-weight: bold;
+  margin: 0;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  text-shadow: 1px 1px 0px #002000;
+  line-height: 1.6;
+}
+
+.joke-count {
+  margin-top: 30px;
+  color: #00ffff;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-size: 14px;
 }
 
 /* Retro blinking effect for title */
