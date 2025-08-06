@@ -1,21 +1,126 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* 80년대 MS-DOS 스타일 + 한글 명조 폰트 */
+body {
+  background-color: #000080;
+  color: #00FF00;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#root {
+  background-color: #000080;
+  color: #00FF00;
+  min-height: 100vh;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.app-container {
+  background-color: #000080;
+  color: #00FF00;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  border: 2px solid #00FF00;
+  margin: 10px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.app-title {
+  color: #FFFF00;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 0px #008000;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  letter-spacing: 2px;
+}
+
+.app-subtitle {
+  color: #00FFFF;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+}
+
+.random-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #008000;
+  color: #FFFF00;
+  border: 2px solid #00FF00;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.random-button:hover {
+  background-color: #00FF00;
+  color: #000080;
+  border: 2px solid #FFFF00;
+}
+
+.joke-container {
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #00FF00;
+  border-radius: 0;
+  background-color: #000040;
+  max-width: 600px;
+  box-shadow: 4px 4px 0px #008000;
+}
+
+.question {
+  color: #FFFF00;
+  margin-bottom: 15px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.answer-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #800080;
+  color: #FFFF00;
+  border: 2px solid #FF00FF;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+}
+
+.answer-button:hover {
+  background-color: #FF00FF;
+  color: #000080;
+  border: 2px solid #FFFF00;
+}
+
+.answer-container {
+  padding: 15px;
+  background-color: #004000;
+  border: 2px solid #00FF00;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.answer {
+  color: #00FFFF;
+  font-size: 20px;
+  margin: 0;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+}
+
+.joke-count {
+  margin-top: 30px;
+  color: #00FFFF;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-size: 14px;
 }
 
 @keyframes logo-spin {
