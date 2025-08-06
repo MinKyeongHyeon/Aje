@@ -21,8 +21,8 @@
   { "id": 12, "question": "콩 한알은 영어로?", "answer": "원빈" },
   { "id": 13, "question": "햄버거 색깔은?", "answer": "버건디" },
   { "id": 14, "question": "토끼가 강한 이유는?", "answer": "깡과 총이 있어서" },
-  { "id": 15, "question": "정의로운 달은?", "answer": "악토벌" },
-  { "id": 16, "question": "항상 미안한 동물은?", "answer": "오소리" },
+  { "id": 15, "question": "정의로운 month는?", "answer": "악토벌" },
+  { "id": 16, "question": "항상 미안한 동물은?", "answer": "오 소리" },
   { "id": 17, "question": "가장 인기 있는 벌레는?", "answer": "스타벅스" },
   { "id": 18, "question": "둘리가 다니는 고등학교는?", "answer": "빙하타고" },
   { "id": 19, "question": "삶은?", "answer": "계란" },
@@ -119,18 +119,22 @@
   { "id": 78, "question": "왕과 작별 인사?", "answer": "바이킹" },
   { "id": 79, "question": "왕이 꿈틀하면?", "answer": "킹콩" },
   { "id": 80, "question": "땅값 싼 동네?", "answer": "일원동" },
-  { "id": 81, "question": "소녀시대가 티 팔면?", "answer": "티격태격" },
-  { "id": 82, "question": "전주비빔밥 반대말은?", "answer": "전주비빔" },
+  { "id": 81, "question": "왕이 주차하면?", "answer": "파킹" },
+  { "id": 82, "question": "전주비빔밥 반대말은?", "answer": "다음주비빔밥" },
   {
     "id": 83,
-    "question": "꽃가게 주인이 싫어하는 도시?",
-    "answer": "꽃가게 주인은?"
+    "question": "왕이 담배를 피우면?",
+    "answer": "스모킹"
   },
   { "id": 84, "question": "세상에서 가장 긴 음식은?", "answer": "참기름" },
   { "id": 85, "question": "서울에서 추우면?", "answer": "서울시립대" },
-  { "id": 86, "question": "도서관서 음료 원샷?", "answer": "반입금지라서" },
+  {
+    "id": 86,
+    "question": "도서관서 음료 원샷하는 이유는?",
+    "answer": "반입금지라서"
+  },
   { "id": 87, "question": "호랑이 새차 뽑고 하는 말?", "answer": "타이거" },
-  { "id": 88, "question": "설경구가 녹으면?", "answer": "설렁구" },
+  { "id": 88, "question": "왕이 인사하면?", "answer": "하이킹" },
   { "id": 89, "question": "열두 달 중 뱀과 벌 없는 달?", "answer": "노뱀벌" },
   { "id": 90, "question": "콘테스트 대신?", "answer": "콘테스트" },
   { "id": 91, "question": "유부남 무서워하는 치킨?", "answer": "마늘치킨" },
@@ -144,7 +148,7 @@
   { "id": 95, "question": "서울에 사는 거지 이름은?", "answer": "설거지" },
   { "id": 96, "question": "가장 가난한 왕은?", "answer": "최저임금" },
   { "id": 97, "question": "덜 자란 옥수수 세 글자로?", "answer": "아이콘" },
-  { "id": 98, "question": "수박 2통 가격?", "answer": "게보린" },
+  { "id": 98, "question": "총을 대충 쏘면?", "answer": "설렁탕" },
   {
     "id": 99,
     "question": "우주인들이 술 마시는 곳은?",
