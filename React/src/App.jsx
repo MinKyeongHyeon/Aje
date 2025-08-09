@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import ajeData from "./data/Aje.json";
 import { smileGuyAscii } from "./components/AsciiArt.js";
@@ -6,20 +6,6 @@ import { smileGuyAscii } from "./components/AsciiArt.js";
 function App() {
   const [currentJoke, setCurrentJoke] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
-
-  // 애드센스 광고 로드 (배포 환경에서만)
-  useEffect(() => {
-    if (
-      window.location.hostname !== "localhost" &&
-      window.location.hostname !== "127.0.0.1"
-    ) {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {
-        console.error("AdSense error:", e);
-      }
-    }
-  }, []);
 
   function getRandomJoke() {
     const randomIndex = Math.floor(Math.random() * ajeData.length);
@@ -62,24 +48,6 @@ function App() {
         <p className="joke-count">
           총 {ajeData.length}개의 아재개그가 수록되어있는 모음-집
         </p>
-
-        {/* 구글 애드센스 광고 */}
-        <h3>구-글 애드센스 提供</h3>
-        <div className="ad-container">
-          {window.location.hostname !== "localhost" &&
-          window.location.hostname !== "127.0.0.1" ? (
-            <ins
-              className="adsbygoogle"
-              style={{ display: "block" }}
-              data-ad-client="ca-pub-여기에_귀하의_퍼블리셔_ID"
-              data-ad-slot="여기에_광고_슬롯_ID"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
-          ) : (
-            <div className="ad-placeholder"></div>
-          )}
-        </div>
       </div>
     </>
   );

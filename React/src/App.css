@@ -217,41 +217,6 @@ body {
   font-size: 14px;
 }
 
-/* 광고 컨테이너 스타일 */
-.ad-container {
-  margin: 30px auto;
-  padding: 20px;
-  border: 1px solid #00ff00;
-  background-color: #000040;
-  border-radius: 0;
-  max-width: 728px;
-  text-align: center;
-}
-
-.ad-container::before {
-  content: "[ 광 고 ]";
-  display: block;
-  color: #00ffff;
-  font-size: 12px;
-  margin-bottom: 10px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-}
-
-/* 개발 환경 광고 플레이스홀더 */
-.ad-placeholder {
-  padding: 40px 20px;
-  text-align: center;
-  color: #ffff00;
-  background-color: #004040;
-  border: 2px dashed #00ff00;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-}
-
-.ad-placeholder p {
-  margin: 10px 0;
-  font-size: 14px;
-}
-
 /* Retro blinking effect for title */
 @keyframes blink {
   0%,
