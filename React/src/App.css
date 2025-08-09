@@ -237,6 +237,21 @@ body {
   font-family: "Noto Serif KR", "Times New Roman", serif;
 }
 
+/* 개발 환경 광고 플레이스홀더 */
+.ad-placeholder {
+  padding: 40px 20px;
+  text-align: center;
+  color: #ffff00;
+  background-color: #004040;
+  border: 2px dashed #00ff00;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+}
+
+.ad-placeholder p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
 /* Retro blinking effect for title */
 @keyframes blink {
   0%,

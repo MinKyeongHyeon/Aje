@@ -7,12 +7,14 @@ function App() {
   const [currentJoke, setCurrentJoke] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
 
-  // 애드센스 광고 로드
+  // 애드센스 광고 로드 (배포 환경에서만)
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense error:", e);
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.error("AdSense error:", e);
+      }
     }
   }, []);
 
@@ -61,14 +63,21 @@ function App() {
         {/* 구글 애드센스 광고 */}
         <h3>구-글 애드센스 提供</h3>
         <div className="ad-container">
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block" }}
-            data-ad-client="ca-pub-여기에_귀하의_퍼블리셔_ID"
-            data-ad-slot="여기에_광고_슬롯_ID"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          ></ins>
+          {window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1' ? (
+            <ins
+              className="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-여기에_귀하의_퍼블리셔_ID"
+              data-ad-slot="여기에_광고_슬롯_ID"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+          ) : (
+            <div className="ad-placeholder">
+              <p>🚧 개발 환경 - 광고 플레이스홀더 🚧</p>
+              <p>실제 배포시 여기에 애드센스 광고가 표시됩니다</p>
+            </div>
+          )}
         </div>
       </div>
     </>
