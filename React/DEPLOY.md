@@ -5,6 +5,7 @@
 ### 방법 1: 드래그앤드롭 (가장 간단)
 
 1. **빌드 파일 확인**
+
    ```bash
    # React 폴더에 dist 폴더가 생성되어 있어야 함
    ls /Users/mingyeonghyeon/Aje/React/dist
@@ -19,6 +20,7 @@
 ### 방법 2: GitHub 연동 (자동 배포)
 
 1. **GitHub에 푸시**
+
    ```bash
    cd /Users/mingyeonghyeon/Aje
    git add .
@@ -39,6 +41,7 @@
 배포 완료 후 다음 정보를 업데이트하세요:
 
 1. **퍼블리셔 ID 교체**
+
    - `index.html`의 `ca-pub-여기에_귀하의_퍼블리셔_ID`
    - `App.jsx`의 `ca-pub-여기에_귀하의_퍼블리셔_ID`
 

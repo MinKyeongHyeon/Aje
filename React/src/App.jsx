@@ -9,7 +9,10 @@ function App() {
 
   // 애드센스 광고 로드 (배포 환경에서만)
   useEffect(() => {
-    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    if (
+      window.location.hostname !== "localhost" &&
+      window.location.hostname !== "127.0.0.1"
+    ) {
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
@@ -63,7 +66,8 @@ function App() {
         {/* 구글 애드센스 광고 */}
         <h3>구-글 애드센스 提供</h3>
         <div className="ad-container">
-          {window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1' ? (
+          {window.location.hostname !== "localhost" &&
+          window.location.hostname !== "127.0.0.1" ? (
             <ins
               className="adsbygoogle"
               style={{ display: "block" }}
@@ -73,10 +77,7 @@ function App() {
               data-full-width-responsive="true"
             ></ins>
           ) : (
-            <div className="ad-placeholder">
-              <p>🚧 개발 환경 - 광고 플레이스홀더 🚧</p>
-              <p>실제 배포시 여기에 애드센스 광고가 표시됩니다</p>
-            </div>
+            <div className="ad-placeholder"></div>
           )}
         </div>
       </div>
