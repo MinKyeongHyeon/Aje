@@ -1,9 +1,7 @@
-import { useState, useCallback, useEffect } from "react";
-import "./App.css";
-import ajeData from "./data/Aje.json";
-
-// ASCII Art를 별도 상수로 분리
-const SMILE_ASCII_ART = `
+/**
+ * ASCII Art 상수들
+ */
+export const SMILE_ASCII_ART = `
   BRXI+=+;==++=:.+..;=++i+++++iYVIIIt=iIIIiiRWWWWWWWWWWWWWt
   BBBMBBBBBXYYtiii+;,:;+=..,.,,..;,;+=iIYItIt+++;;++===XMMMMMMMMWWMMt
   BMBBBBRRRYtit=+i==:..........::.,,;:=+iit=,:,:==;+==+iBMBBBMMMMMBBi
@@ -52,95 +50,19 @@ const SMILE_ASCII_ART = `
   WWWWWWWWWWWWWWWWWWWWWWWWWWt.,:..;:VWWWWWWWWWWWWWWWWWWWWWWWBi.......
 `;
 
-function App() {
-  const [currentJoke, setCurrentJoke] = useState(null);
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    if (!ajeData || ajeData.length === 0) {
-      setError("아재개그 데이터를 불러올 수 없습니다.");
-    }
-  }, []);
-
-  const getRandomIndex = useCallback((max) => {
-    return Math.floor(Math.random() * max);
-  }, []);
-
-  const getRandomJoke = useCallback(() => {
-    if (!ajeData || ajeData.length === 0) {
-      setError("아재개그를 불러올 수 없습니다.");
-      return;
-    }
-    setIsLoading(true);
-    setError(null);
-    try {
-      const randomIndex = getRandomIndex(ajeData.length);
-      setCurrentJoke(ajeData[randomIndex]);
-      setShowAnswer(false);
-    } catch (err) {
-      setError("개그를 가져오는 중 오류가 발생했습니다.");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [getRandomIndex]);
-
-  const showAnswerHandler = useCallback(() => {
-    setShowAnswer(true);
-  }, []);
-
-  return (
-    <>
-      <div className="app-container">
-        <h1 className="app-title">모자람 없어도... 재미는 있으니까...</h1>
-        <p className="app-subtitle">웃으면 너도 아저씨</p>
-        <pre className="smile-guy" aria-label="웃는 얼굴 ASCII 아트">
-          {SMILE_ASCII_ART}
-        </pre>
-        {error && (
-          <div className="error-message" role="alert" aria-live="polite">
-            ⚠️ {error}
-          </div>
-        )}
-        <button
-          onClick={getRandomJoke}
-          className="random-button"
-          aria-label="새로운 아재개그 랜덤으로 보기"
-          disabled={isLoading}
-        >
-          {isLoading ? "로딩 중..." : "개그 감상하기"}
-        </button>
-        {isLoading && (
-          <div className="loading-spinner" aria-label="로딩 중">
-            <div className="spinner"></div>
-          </div>
-        )}
-        {currentJoke && (
-          <div className="joke-container">
-            <h2 className="question">Q: {currentJoke.question}</h2>
-            {!showAnswer ? (
-              <button
-                onClick={showAnswerHandler}
-                className="answer-button"
-                aria-label="정답 보기"
-                disabled={isLoading}
-              >
-                정답 보기
-              </button>
-            ) : (
-              <div className="answer-container" role="alert" aria-live="polite">
-                <h3 className="answer">A: {currentJoke.answer} ㅋㅋ</h3>
-              </div>
-            )}
-          </div>
-        )}
-        <p className="joke-count">
-          총 {ajeData.length}개의 아재개그가 수록되어있는 모음-집
-        </p>
-      </div>
-    </>
-  );
-}
-
-export default App;
+/**
+ * 애플리케이션 상수들
+ */
+export const APP_CONSTANTS = {
+  TITLE: "모자람 없어도... 재미는 있으니까...",
+  SUBTITLE: "웃으면 너도 아저씨",
+  BUTTON_LABELS: {
+    GET_JOKE: "개그 감상하기",
+    SHOW_ANSWER: "정답 보기",
+    LOADING: "로딩 중...",
+  },
+  ERROR_MESSAGES: {
+    NO_DATA: "아재개그 데이터를 불러올 수 없습니다.",
+    FETCH_ERROR: "개그를 가져오는 중 오류가 발생했습니다.",
+  },
+};
