@@ -239,6 +239,27 @@ body {
   animation: blink 1s infinite;
 }
 
+/* Notice (간단한 토스트 스타일) */
+.notice {
+  margin: 12px auto;
+  padding: 10px 14px;
+  background: #003000;
+  color: #ffff66;
+  border: 1px solid #00ff00;
+  max-width: 600px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* 포커스 시 입력 강조 */
+.name-input:focus,
+.random-button:focus,
+.answer-button:focus,
+.vote-button:focus {
+  outline: 2px dashed #00ff00;
+  outline-offset: 2px;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .app-container {

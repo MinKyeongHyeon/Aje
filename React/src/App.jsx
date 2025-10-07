@@ -125,6 +125,9 @@ function App() {
 
     // 키보드 단축키 등록
     const onKey = (e) => {
+      // 폼 요소에 포커스가 있는 경우 단축키 무시
+      const active = document.activeElement && document.activeElement.tagName;
+      if (active && ["INPUT", "TEXTAREA", "SELECT", "BUTTON"].includes(active)) return;
       // 스페이스: 랜덤 개그, Enter: 정답 보기, L: 좋아요, D: 싫어요
       if (e.code === "Space") {
         e.preventDefault();
@@ -210,7 +213,9 @@ function App() {
           {SMILE_ASCII_ART}
         </pre>
 
-        {notice && <div className="notice">{notice}</div>}
+        {notice && (
+          <div className="notice" role="status" aria-live="polite">{notice}</div>
+        )}
 
         {error && (
           <div className="error-message" role="alert" aria-live="polite">

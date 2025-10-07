@@ -5,16 +5,26 @@ import "./JokeCard.css";
 /**
  * 개별 개그를 표시하는 컴포넌트
  */
-const JokeCard = ({ joke, showAnswer, onShowAnswer, isLoading }) => {
+const JokeCard = ({
+  joke,
+  showAnswer,
+  onShowAnswer,
+  isLoading,
+  onLike,
+  onDislike,
+  likeCount,
+  dislikeCount,
+  voteDisabled,
+}) => {
   if (!joke) return null;
 
   return (
     <div
       className="joke-container"
       role="article"
-      aria-labelledby="joke-question"
+      aria-labelledby={`joke-question-${joke.id}`}
     >
-      <h2 id="joke-question" className="question">
+      <h2 id={`joke-question-${joke.id}`} className="question">
         Q: {joke.question}
       </h2>
 
@@ -34,6 +44,26 @@ const JokeCard = ({ joke, showAnswer, onShowAnswer, isLoading }) => {
           </div>
         )}
       </div>
+
+      <div className="vote-row" aria-hidden={false}>
+        <button
+          className="vote-button like"
+          onClick={() => onLike && onLike(joke.id)}
+          aria-label={`이 개그 좋아요 ${likeCount}개`}
+          disabled={voteDisabled}
+        >
+          👍 {likeCount}
+        </button>
+
+        <button
+          className="vote-button dislike"
+          onClick={() => onDislike && onDislike(joke.id)}
+          aria-label={`이 개그 싫어요 ${dislikeCount}개`}
+          disabled={voteDisabled}
+        >
+          👎 {dislikeCount}
+        </button>
+      </div>
     </div>
   );
 };
@@ -47,11 +77,21 @@ JokeCard.propTypes = {
   showAnswer: PropTypes.bool.isRequired,
   onShowAnswer: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
+  onLike: PropTypes.func,
+  onDislike: PropTypes.func,
+  likeCount: PropTypes.number,
+  dislikeCount: PropTypes.number,
+  voteDisabled: PropTypes.bool,
 };
 
 JokeCard.defaultProps = {
   joke: null,
   isLoading: false,
+  onLike: null,
+  onDislike: null,
+  likeCount: 0,
+  dislikeCount: 0,
+  voteDisabled: false,
 };
 
 export default JokeCard;
