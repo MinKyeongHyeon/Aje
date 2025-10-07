@@ -1,0 +1,26 @@
+.vote-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.vote-button {
+  padding: 8px 14px;
+  font-size: 16px;
+  border: 2px solid #00ff00;
+  background: #002000;
+  color: #ffff00;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.vote-button.like:hover {
+  background: #005000;
+  box-shadow: 0 0 6px #00ff00;
+}
+
+.vote-button.dislike:hover {
+  background: #500000;
+  box-shadow: 0 0 6px #ff0000;
+}
