@@ -1,79 +1,264 @@
-/* 전체 스타일을 깔끔하고 가독성 좋은 레트로-모던으로 정리 */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap");
+/* 80s MS-DOS Style CSS for Korean Dad Joke App */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap");
 
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#06113a; /* 진한 네이비 */
-  --panel:#07142a; /* 패널 배경 */
-  --accent:#00c853; /* 선명한 그린 */
-  --muted:#66e0a3;
-  --text:#e7ffcc; /* 연한 노란-레몬 */
-  --sub:#7fe6ff;
-  --card:#031027;
-  --button-bg:#0b6b2d;
+/* Global reset and base settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,body,#root{height:100%}
-body{
-  font-family: 'Noto Serif KR','Roboto Mono',serif;
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  display:flex;align-items:flex-start;justify-content:center;padding:28px;
+:root {
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #000080;
+  color: #00ff00;
 }
 
-.app-container{
-  width:100%;max-width:980px;background:linear-gradient(180deg,var(--panel),rgba(0,0,0,0.1));
-  border-radius:12px;padding:28px 36px;border:2px solid rgba(0,200,83,0.18);box-shadow:0 8px 30px rgba(0,0,0,0.6);
+html {
+  background-color: #000080;
 }
 
-.app-title{font-size:34px;color:var(--sub);text-align:center;margin-bottom:6px;font-weight:700;letter-spacing:1px}
-.app-subtitle{color:var(--sub);text-align:center;margin-bottom:20px;opacity:0.9}
+body {
+  background-color: #000080;
+  color: #00ff00;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.controls-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin:18px 0}
-.name-label{color:var(--muted);margin-right:8px}
-.name-input{padding:10px 12px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:#fff;color:#111;font-size:16px;min-width:220px}
-.name-input::placeholder{color:#888}
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.random-button{padding:14px 28px;font-size:18px;background:var(--button-bg);color:var(--text);border:none;border-radius:8px;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
-.random-button:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,200,83,0.14)}
-.random-button:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.app-container {
+  background-color: #000080;
+  color: #00ff00;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  border: 2px solid #00ff00;
+  margin: 10px;
+  max-width: 800px;
+  width: 100%;
+}
 
-.greeting{color:var(--muted);text-align:center;margin:14px 0;font-size:18px}
-.hint{color:#a7f7c4;text-align:center;margin:18px 0}
-.keyboard-hint{color:rgba(127,230,255,0.9);text-align:center;margin-top:18px;font-size:13px}
+.app-title {
+  color: #ffff00;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 0px #008000;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  letter-spacing: 2px;
+}
 
-/* ASCII art */
-.smile-guy{font-family:'Roboto Mono',monospace;background:var(--card);padding:18px;border-radius:8px;border:1px solid rgba(0,200,83,0.06);color:var(--accent);font-size:12px;line-height:1.1;overflow:auto;max-height:320px}
-.smile-guy.hovered{box-shadow:0 8px 40px rgba(0,200,83,0.08);transform:translateY(-4px);transition:transform .18s ease,box-shadow .18s ease}
+.app-subtitle {
+  color: #00ffff;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+}
 
-.joke-container{margin:22px 0;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:8px;border:1px solid rgba(0,200,83,0.04)}
-.question{font-size:20px;color:var(--sub);margin-bottom:12px}
-.answer-container{background:rgba(0,200,83,0.06);padding:12px;border-radius:6px;color:var(--text)}
-.answer{font-weight:700;color:var(--text)}
+.smile-guy {
+  color: #ffff00;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 20px 0;
+  text-shadow: 1px 1px 0px #008000;
+  white-space: pre;
+  background-color: #000040;
+  padding: 15px;
+  border: 1px solid #00ff00;
+  border-radius: 0;
+}
 
-.answer-button{padding:10px 18px;background:#6a2f6a;border-radius:8px;border:none;color:var(--text);cursor:pointer}
-.answer-button:hover{opacity:0.95}
+.random-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #008000;
+  color: #ffff00;
+  border: 2px solid #00ff00;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px #004000;
+  transition: all 0.2s;
+}
 
-.vote-row{display:flex;gap:12px;justify-content:center;margin-top:12px}
-.vote-button{padding:8px 14px;border-radius:8px;border:1px solid rgba(0,200,83,0.08);background:transparent;color:var(--text);cursor:pointer}
-.vote-button:disabled{opacity:0.55;cursor:not-allowed}
-.vote-button.like{background:linear-gradient(180deg,rgba(0,200,83,0.06),transparent)}
-.vote-button.dislike{background:linear-gradient(180deg,rgba(200,30,30,0.03),transparent)}
+.random-button:hover {
+  background-color: #00a000;
+  color: #ffffff;
+  box-shadow: 0 0 10px #00ff00;
+}
 
-.joke-count{margin-top:18px;color:rgba(127,230,255,0.9);text-align:center}
+.random-button:active {
+  transform: translateY(2px);
+}
 
-.notice{margin:12px auto;padding:10px 14px;background:#09382a;color:var(--muted);border-radius:8px;border:1px solid rgba(0,200,83,0.08);max-width:720px;text-align:center}
+.joke-container {
+  margin: 30px 0;
+  padding: 20px;
+  border: 1px solid #00ff00;
+  background-color: #000040;
+  border-radius: 0;
+}
 
-/* focus styles for accessibility */
-.name-input:focus,.random-button:focus,.answer-button:focus,.vote-button:focus{outline:3px solid rgba(0,200,83,0.12);outline-offset:3px}
+.joke-question {
+  font-size: 20px;
+  color: #00ffff;
+  margin-bottom: 20px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  line-height: 1.6;
+}
 
-/* responsive */
-@media (max-width:720px){
-  .controls-row{flex-direction:column}
-  .random-button{width:100%}
-  .name-input{width:100%;min-width:0}
-  .smile-guy{max-height:220px;font-size:11px}
-  .app-title{font-size:22px}
+.answer-section {
+  margin-top: 20px;
+}
+
+.show-answer-button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #800080;
+  color: #ffff00;
+  border: 2px solid #ff00ff;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px #400040;
+  transition: all 0.2s;
+}
+
+.show-answer-button:hover {
+  background-color: #a000a0;
+  box-shadow: 0 0 8px #ff00ff;
+}
+
+.answer-button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #800080;
+  color: #ffff00;
+  border: 2px solid #ff00ff;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px #400040;
+  transition: all 0.2s;
+}
+
+.answer-button:hover {
+  background-color: #a000a0;
+  box-shadow: 0 0 8px #ff00ff;
+}
+
+.joke-answer {
+  font-size: 18px;
+  color: #ffff00;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #004000;
+  border: 1px solid #00ff00;
+  border-radius: 0;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  text-shadow: 1px 1px 0px #002000;
+  line-height: 1.6;
+}
+
+.question {
+  font-size: 20px;
+  color: #00ffff;
+  margin-bottom: 20px;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.answer-container {
+  padding: 15px;
+  background-color: #004000;
+  border: 1px solid #00ff00;
+  border-radius: 0;
+  margin-top: 15px;
+}
+
+.answer {
+  font-size: 18px;
+  color: #ffff00;
+  font-weight: bold;
+  margin: 0;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  text-shadow: 1px 1px 0px #002000;
+  line-height: 1.6;
+}
+
+.joke-count {
+  margin-top: 30px;
+  color: #00ffff;
+  font-family: "Noto Serif KR", "Times New Roman", serif;
+  font-size: 14px;
+}
+
+/* Retro blinking effect for title */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.app-title::before {
+  content: ">>> ";
+  animation: blink 1s infinite;
+}
+
+.app-title::after {
+  content: " <<<";
+  animation: blink 1s infinite;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .app-container {
+    margin: 5px;
+    padding: 15px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .joke-question {
+    font-size: 18px;
+  }
+
+  .joke-answer {
+    font-size: 16px;
+  }
+
+  .smile-guy {
+    font-size: 12px;
+  }
 }
