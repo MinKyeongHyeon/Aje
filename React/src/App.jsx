@@ -120,7 +120,8 @@ function App() {
     // 키보드 단축키 등록 (폼에 포커스된 경우 제외)
     const onKey = (e) => {
       const active = document.activeElement && document.activeElement.tagName;
-      if (active && ["INPUT", "TEXTAREA", "SELECT", "BUTTON"].includes(active)) return;
+      if (active && ["INPUT", "TEXTAREA", "SELECT", "BUTTON"].includes(active))
+        return;
       if (e.code === "Space") {
         e.preventDefault();
         handleGetRandom();
@@ -137,7 +138,14 @@ function App() {
 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [handleGetRandom, currentJoke, showAnswer, handleShowAnswer, handleLike, handleDislike]);
+  }, [
+    handleGetRandom,
+    currentJoke,
+    showAnswer,
+    handleShowAnswer,
+    handleLike,
+    handleDislike,
+  ]);
 
   // 이름 입력 관련 기능 제거 (개인화 없음)
 
@@ -177,7 +185,9 @@ function App() {
         </pre>
 
         {notice && (
-          <div className="notice" role="status" aria-live="polite">{notice}</div>
+          <div className="notice" role="status" aria-live="polite">
+            {notice}
+          </div>
         )}
 
         {error && (
