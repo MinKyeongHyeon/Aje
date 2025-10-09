@@ -1,264 +1,63 @@
-/* 80s MS-DOS Style CSS for Korean Dad Joke App */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap");
 
-/* Global reset and base settings */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  line-height: 1.5;
-  font-weight: 400;
-  background-color: #000080;
-  color: #00ff00;
+  --bg-1: #071029; /* deep navy */
+  --bg-2: #041726;
+  --accent: #7bd389; /* soft green */
+  --muted: #9fc8e6;
+  --text: #eaf6ff;
 }
 
-html {
-  background-color: #000080;
-}
-
+html, body, #root { height: 100%; }
 body {
-  background-color: #000080;
-  color: #00ff00;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: "Noto Serif KR", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 .app-container {
-  background-color: #000080;
-  color: #00ff00;
-  text-align: center;
-  padding: 20px;
-  min-height: 100vh;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  border: 2px solid #00ff00;
-  margin: 10px;
-  max-width: 800px;
-  width: 100%;
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 28px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
-.app-title {
-  color: #ffff00;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 0px #008000;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  letter-spacing: 2px;
-}
+.app-title { font-size: 28px; color: var(--text); margin-bottom: 6px; }
+.app-subtitle { color: var(--muted); margin-bottom: 18px; }
 
-.app-subtitle {
-  color: #00ffff;
-  margin-bottom: 30px;
-  font-size: 16px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-}
-
-.smile-guy {
-  color: #ffff00;
-  font-family: "Courier New", monospace;
-  font-size: 14px;
-  line-height: 1.2;
-  margin: 20px 0;
-  text-shadow: 1px 1px 0px #008000;
-  white-space: pre;
-  background-color: #000040;
-  padding: 15px;
-  border: 1px solid #00ff00;
-  border-radius: 0;
-}
+.controls-row { display:flex; gap:12px; align-items:center; margin-bottom:20px; justify-content:center; }
 
 .random-button {
-  padding: 15px 30px;
-  font-size: 18px;
-  background-color: #008000;
-  color: #ffff00;
-  border: 2px solid #00ff00;
-  border-radius: 0;
+  background: var(--accent);
+  color: #06220b;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
   cursor: pointer;
-  margin-bottom: 20px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-weight: bold;
-  text-shadow: 1px 1px 0px #004000;
-  transition: all 0.2s;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.35);
+}
+.random-button[disabled] { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.smile-guy { font-family: monospace; color: #ffd; white-space: pre; padding: 12px; background: rgba(0,0,0,0.3); border-radius:6px; margin: 18px 0; }
+
+.joke-container { padding: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:8px; margin-bottom:16px; }
+.joke-question { color: var(--muted); font-size:18px; margin-bottom:12px; }
+.joke-answer { font-weight:700; color: var(--text); background: rgba(10,20,10,0.15); padding: 12px; border-radius:6px; }
+
+.joke-count { text-align:center; color: #a9d6ff; margin-top: 20px; }
+
+.notice { text-align:center; color: #ffd; margin-bottom:8px; }
+.error-message { text-align:center; color: #ffb3b3; margin-bottom:8px; }
+
+@media (max-width: 720px) {
+  .controls-row { flex-direction: column; }
+  .random-button { width: 100%; }
 }
 
-.random-button:hover {
-  background-color: #00a000;
-  color: #ffffff;
-  box-shadow: 0 0 10px #00ff00;
-}
-
-.random-button:active {
-  transform: translateY(2px);
-}
-
-.joke-container {
-  margin: 30px 0;
-  padding: 20px;
-  border: 1px solid #00ff00;
-  background-color: #000040;
-  border-radius: 0;
-}
-
-.joke-question {
-  font-size: 20px;
-  color: #00ffff;
-  margin-bottom: 20px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  line-height: 1.6;
-}
-
-.answer-section {
-  margin-top: 20px;
-}
-
-.show-answer-button {
-  padding: 10px 25px;
-  font-size: 16px;
-  background-color: #800080;
-  color: #ffff00;
-  border: 2px solid #ff00ff;
-  border-radius: 0;
-  cursor: pointer;
-  margin-bottom: 15px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-weight: bold;
-  text-shadow: 1px 1px 0px #400040;
-  transition: all 0.2s;
-}
-
-.show-answer-button:hover {
-  background-color: #a000a0;
-  box-shadow: 0 0 8px #ff00ff;
-}
-
-.answer-button {
-  padding: 10px 25px;
-  font-size: 16px;
-  background-color: #800080;
-  color: #ffff00;
-  border: 2px solid #ff00ff;
-  border-radius: 0;
-  cursor: pointer;
-  margin-bottom: 15px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-weight: bold;
-  text-shadow: 1px 1px 0px #400040;
-  transition: all 0.2s;
-}
-
-.answer-button:hover {
-  background-color: #a000a0;
-  box-shadow: 0 0 8px #ff00ff;
-}
-
-.joke-answer {
-  font-size: 18px;
-  color: #ffff00;
-  font-weight: bold;
-  margin-top: 15px;
-  padding: 15px;
-  background-color: #004000;
-  border: 1px solid #00ff00;
-  border-radius: 0;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  text-shadow: 1px 1px 0px #002000;
-  line-height: 1.6;
-}
-
-.question {
-  font-size: 20px;
-  color: #00ffff;
-  margin-bottom: 20px;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  line-height: 1.6;
-}
-
-.answer-container {
-  padding: 15px;
-  background-color: #004000;
-  border: 1px solid #00ff00;
-  border-radius: 0;
-  margin-top: 15px;
-}
-
-.answer {
-  font-size: 18px;
-  color: #ffff00;
-  font-weight: bold;
-  margin: 0;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  text-shadow: 1px 1px 0px #002000;
-  line-height: 1.6;
-}
-
-.joke-count {
-  margin-top: 30px;
-  color: #00ffff;
-  font-family: "Noto Serif KR", "Times New Roman", serif;
-  font-size: 14px;
-}
-
-/* Retro blinking effect for title */
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0.7;
-  }
-}
-
-.app-title::before {
-  content: ">>> ";
-  animation: blink 1s infinite;
-}
-
-.app-title::after {
-  content: " <<<";
-  animation: blink 1s infinite;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .app-container {
-    margin: 5px;
-    padding: 15px;
-  }
-
-  .app-title {
-    font-size: 20px;
-  }
-
-  .joke-question {
-    font-size: 18px;
-  }
-
-  .joke-answer {
-    font-size: 16px;
-  }
-
-  .smile-guy {
-    font-size: 12px;
-  }
-}

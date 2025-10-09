@@ -6,8 +6,6 @@ import JokeCard from "./components/JokeCard.jsx";
 import { SMILE_ASCII_ART } from "./constants/asciiArt";
 
 function App() {
-  // 사용자 이름 입력 및 저장
-  const [name, setName] = useState("");
   const [asciiHovered, setAsciiHovered] = useState(false);
   // 클릭 디바운싱 / UX 개선을 위한 상태
   const [randomDisabled, setRandomDisabled] = useState(false);
@@ -119,16 +117,10 @@ function App() {
   }, [answerDisabled, showAnswerHandler]);
 
   useEffect(() => {
-    // 이름 복원
-    const savedName = localStorage.getItem("aje_name");
-    if (savedName) setName(savedName);
-
-    // 키보드 단축키 등록
+    // 키보드 단축키 등록 (폼에 포커스된 경우 제외)
     const onKey = (e) => {
-      // 폼 요소에 포커스가 있는 경우 단축키 무시
       const active = document.activeElement && document.activeElement.tagName;
       if (active && ["INPUT", "TEXTAREA", "SELECT", "BUTTON"].includes(active)) return;
-      // 스페이스: 랜덤 개그, Enter: 정답 보기, L: 좋아요, D: 싫어요
       if (e.code === "Space") {
         e.preventDefault();
         handleGetRandom();
@@ -145,25 +137,9 @@ function App() {
 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // 의존성은 안정적인 콜백들만 포함
-  }, [
-    handleGetRandom,
-    currentJoke,
-    showAnswer,
-    handleShowAnswer,
-    handleLike,
-    handleDislike,
-  ]);
+  }, [handleGetRandom, currentJoke, showAnswer, handleShowAnswer, handleLike, handleDislike]);
 
-  const onNameChange = (e) => {
-    const v = e.target.value;
-    setName(v);
-    try {
-      localStorage.setItem("aje_name", v);
-    } catch {
-      // ignore
-    }
-  };
+  // 이름 입력 관련 기능 제거 (개인화 없음)
 
   return (
     <>
@@ -172,17 +148,6 @@ function App() {
         <p className="app-subtitle">웃으면 너도 아저씨</p>
 
         <div className="controls-row">
-          <label htmlFor="name-input" className="name-label">
-            이름 입력하면 개인화 인사 보기:
-          </label>
-          <input
-            id="name-input"
-            className="name-input"
-            placeholder="이름을 입력하세요 (예: 철수)"
-            value={name}
-            onChange={onNameChange}
-            aria-label="사용자 이름"
-          />
           <button
             onClick={handleGetRandom}
             className="random-button"
@@ -201,8 +166,6 @@ function App() {
             리셋
           </button>
         </div>
-
-        {name && <p className="greeting">안녕, {name}님! 개그 시작해볼까?</p>}
 
         <pre
           className={`smile-guy ${asciiHovered ? "hovered" : ""}`}
