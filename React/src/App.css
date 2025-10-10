@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 * {
   box-sizing: border-box;
@@ -45,7 +45,7 @@ body {
 .terminal-theme {
   background: #000; /* black */
   color: #33ff66;
-  font-family: 'Courier New', 'Lucida Console', monospace;
+  font-family: "Courier New", "Lucida Console", monospace;
   border: 4px solid #004400;
 }
 
@@ -53,7 +53,7 @@ body {
   background: #002200;
   color: #99ffb3;
   padding: 6px 10px;
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
   margin-bottom: 12px;
   border-bottom: 2px solid #003300;
 }
@@ -70,7 +70,6 @@ body {
   background: #001100;
 }
 
-
 .crt-overlay {
   position: relative;
 }
@@ -81,8 +80,8 @@ body {
   pointer-events: none;
   background-image: repeating-linear-gradient(
     to bottom,
-    rgba(255,255,255,0.02) 0px,
-    rgba(0,0,0,0.04) 1px
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(0, 0, 0, 0.04) 1px
   );
   mix-blend-mode: overlay;
 }
@@ -95,7 +94,7 @@ body {
 }
 
 .app-title {
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
 }
 
 .app-title {
@@ -128,7 +127,7 @@ body {
   cursor: pointer;
   box-shadow: 0 6px 0 #01320f;
   text-transform: none;
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
 }
 .random-button[disabled] {
   opacity: 0.6;
@@ -194,3 +193,91 @@ body {
     width: 100%;
   }
 }
+
+/* ===== 터미널 모드 보완 및 커서/타이핑 스타일 추가 ===== */
+
+/* 통일: 터미널 모드 클래스는 .terminal-theme 로 사용 */
+.terminal-theme {
+  background: #000;
+  color: #33ff66;
+  font-family: "Courier New", "Lucida Console", monospace;
+  border: 4px solid #004400;
+}
+
+/* smile / art in terminal */
+.terminal-theme .smile-guy,
+.terminal-theme .smile-wrap {
+  color: #33ff66;
+  background: #001100;
+}
+
+/* CRT / scanline tweak: 가독성 위해 약간 투명도 낮춤, 텍스트 위에 겹치지 않도록 z-index */
+.crt-overlay { position: relative; overflow: hidden; }
+.crt-overlay .scanlines {
+  z-index: 5;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+}
+
+/* 타이핑 텍스트 컨테이너 */
+.typing-text {
+  white-space: pre-wrap;
+  font-family: inherit;
+  display: inline-block;
+  color: inherit;
+}
+
+/* 깜빡이는 커서 (질문 옆) - 터미널 모드에서만 보이도록 */
+.terminal-theme .terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.15em;
+  margin-left: 8px;
+  background: #33ff66;
+  vertical-align: middle;
+  border-radius: 2px;
+  animation: terminal-blink 1s steps(2, start) infinite;
+  box-shadow: 0 0 8px rgba(51,255,102,0.25);
+}
+
+/* 대체 caret 스타일 (텍스트 끝에 깜박임) - 사용 시 .typing-text.caret 적용 */
+.typing-text.caret::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 1.15em;
+  margin-left: 6px;
+  vertical-align: middle;
+  background: #33ff66;
+  animation: terminal-blink 1s steps(2,start) infinite;
+}
+
+/* keyframes */
+@keyframes terminal-blink {
+  0% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0.12; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 반응형: joke-container 내부 폭 제한으로 중앙 정렬 강화 */
+.joke-container {
+  max-width: 860px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 컨트롤 그룹의 버튼들 중앙 배치 강제 */
+.controls-row { justify-content: center; align-items: center; }
+
+/* 터미널 모드일 때 버튼 스타일(더 레트로하게) */
+.terminal-theme .random-button {
+  background: transparent;
+  color: #33ff66;
+  border: 2px solid #003300;
+  box-shadow: none;
+  padding: 8px 14px;
+  font-family: "Press Start 2P", monospace;
+}
+
+/* 끝 */
