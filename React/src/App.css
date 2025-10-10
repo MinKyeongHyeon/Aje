@@ -36,6 +36,9 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .crt-overlay {
@@ -81,17 +84,21 @@ body {
   align-items: center;
   margin-bottom: 20px;
   justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 760px;
 }
-
 .random-button {
-  background: var(--accent);
+  background: linear-gradient(#c8ffdc, #7bd389);
   color: #06220b;
-  padding: 12px 20px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: 3px solid #03561a;
+  font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 0 #01320f;
+  text-transform: none;
+  font-family: 'Press Start 2P', monospace;
 }
 .random-button[disabled] {
   opacity: 0.6;
