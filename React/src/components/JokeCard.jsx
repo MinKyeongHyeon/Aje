@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./JokeCard.css";
 
@@ -15,7 +15,28 @@ const JokeCard = ({
   likeCount,
   dislikeCount,
   voteDisabled,
+  terminalMode,
 }) => {
+  // typing effect state (hooks must be called unconditionally)
+  const [typed, setTyped] = useState("");
+  const answerText = joke ? joke.answer : "";
+
+  useEffect(() => {
+    if (!joke || !showAnswer) {
+      setTyped("");
+      return;
+    }
+    let i = 0;
+    const text = `A: ${answerText}`;
+    setTyped("");
+    const id = setInterval(() => {
+      i += 1;
+      setTyped(text.slice(0, i));
+      if (i >= text.length) clearInterval(id);
+    }, 28);
+    return () => clearInterval(id);
+  }, [showAnswer, answerText, joke]);
+
   if (!joke) return null;
 
   return (
@@ -24,8 +45,9 @@ const JokeCard = ({
       role="article"
       aria-labelledby={`joke-question-${joke.id}`}
     >
-      <h2 id={`joke-question-${joke.id}`} className="question">
+      <h2 id={`joke-question-${joke.id}`} className={`question ${terminalMode? 'terminal-question':''}`}>
         Q: {joke.question}
+        {terminalMode && <span className="terminal-cursor" aria-hidden>_</span>}
       </h2>
 
       <div className="answer-section">
@@ -40,7 +62,7 @@ const JokeCard = ({
           </button>
         ) : (
           <div className="answer-container" role="alert" aria-live="polite">
-            <h3 className="answer">A: {joke.answer} ㅋㅋ</h3>
+            <h3 className="answer">{typed}{!typed.endsWith(joke.answer) && <span className="terminal-cursor">_</span>}</h3>
           </div>
         )}
       </div>
@@ -82,6 +104,7 @@ JokeCard.propTypes = {
   likeCount: PropTypes.number,
   dislikeCount: PropTypes.number,
   voteDisabled: PropTypes.bool,
+  terminalMode: PropTypes.bool,
 };
 
 JokeCard.defaultProps = {
@@ -92,6 +115,7 @@ JokeCard.defaultProps = {
   likeCount: 0,
   dislikeCount: 0,
   voteDisabled: false,
+  terminalMode: false,
 };
 
 export default JokeCard;
