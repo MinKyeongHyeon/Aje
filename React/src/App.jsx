@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import "./App.css";
+import clickSfx from "./assets/sfx/click.mp3";
 import ajeData from "./data/Aje.json";
 import { useJokes } from "./hooks/useJokes";
 import JokeCard from "./components/JokeCard.jsx";
@@ -12,6 +13,7 @@ function App() {
   const [answerDisabled, setAnswerDisabled] = useState(false);
   const [voteDisabledIds, setVoteDisabledIds] = useState({});
   const [notice, setNotice] = useState("");
+  const [terminalMode, setTerminalMode] = useState(false);
 
   // 아재개그 훅 사용
   const {
@@ -116,6 +118,17 @@ function App() {
     setTimeout(() => setAnswerDisabled(false), 400);
   }, [answerDisabled, showAnswerHandler]);
 
+  const playClick = () => {
+    try {
+      const a = new Audio(clickSfx);
+      a.volume = 0.3;
+      a.currentTime = 0;
+      a.play().catch(() => {});
+    } catch {
+      // ignore
+    }
+  };
+
   useEffect(() => {
     // 키보드 단축키 등록 (폼에 포커스된 경우 제외)
     const onKey = (e) => {
@@ -162,7 +175,7 @@ function App() {
             aria-label="새로운 아재개그 랜덤으로 보기"
             disabled={isLoading || randomDisabled}
           >
-            {isLoading ? "로딩 중..." : "개그 감상하기 (Space)"}
+            {isLoading ? "로딩 중..." : "개그 감상하기"}
           </button>
           <button
             onClick={resetJoke}
@@ -173,16 +186,27 @@ function App() {
           >
             리셋
           </button>
+          <button
+            onClick={() => { setTerminalMode((v) => !v); playClick(); }}
+            className="random-button"
+            aria-label="터미널 모드 토글"
+            style={{ marginLeft: 8 }}
+          >
+            {terminalMode ? "터미널 종료" : "터미널 모드"}
+          </button>
         </div>
 
-        <pre
-          className={`smile-guy ${asciiHovered ? "hovered" : ""}`}
-          aria-label="웃는 얼굴 ASCII 아트"
-          onMouseEnter={() => setAsciiHovered(true)}
-          onMouseLeave={() => setAsciiHovered(false)}
-        >
-          {SMILE_ASCII_ART}
-        </pre>
+        <div className={`smile-wrap ${terminalMode ? "terminal" : ""}`}>
+          <pre
+            className={`smile-guy ${asciiHovered ? "hovered" : ""}`}
+            aria-label="웃는 얼굴 ASCII 아트"
+            onMouseEnter={() => setAsciiHovered(true)}
+            onMouseLeave={() => setAsciiHovered(false)}
+          >
+            {SMILE_ASCII_ART}
+          </pre>
+          <div className="scanlines" aria-hidden="true" />
+        </div>
 
         {notice && (
           <div className="notice" role="status" aria-live="polite">
@@ -222,10 +246,12 @@ function App() {
           총 {ajeData.length}개의 아재개그가 수록되어있는 모음-집
         </p>
 
+      </div>
+      <footer className="app-footer">
         <div className="keyboard-hint">
           단축키: Space - 랜덤 개그, Enter - 정답 보기, L - 좋아요, D - 싫어요
         </div>
-      </div>
+      </footer>
     </>
   );
 }
