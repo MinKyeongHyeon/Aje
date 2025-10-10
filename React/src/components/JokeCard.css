@@ -24,3 +24,17 @@
   background: #500000;
   box-shadow: 0 0 6px #ff0000;
 }
+
+.terminal-cursor {
+  display: inline-block;
+  width: 12px;
+  margin-left: 6px;
+  color: #33ff66;
+  animation: blink 1s steps(2,start) infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1 }
+  50% { opacity: 0 }
+  100% { opacity: 1 }
+}

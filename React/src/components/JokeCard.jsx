@@ -16,6 +16,7 @@ const JokeCard = ({
   dislikeCount,
   voteDisabled,
   terminalMode,
+  typingSpeed,
 }) => {
   // typing effect state (hooks must be called unconditionally)
   const [typed, setTyped] = useState("");
@@ -33,9 +34,9 @@ const JokeCard = ({
       i += 1;
       setTyped(text.slice(0, i));
       if (i >= text.length) clearInterval(id);
-    }, 28);
+    }, typingSpeed);
     return () => clearInterval(id);
-  }, [showAnswer, answerText, joke]);
+  }, [showAnswer, answerText, joke, typingSpeed]);
 
   if (!joke) return null;
 
@@ -105,6 +106,7 @@ JokeCard.propTypes = {
   dislikeCount: PropTypes.number,
   voteDisabled: PropTypes.bool,
   terminalMode: PropTypes.bool,
+  typingSpeed: PropTypes.number,
 };
 
 JokeCard.defaultProps = {
@@ -116,6 +118,7 @@ JokeCard.defaultProps = {
   dislikeCount: 0,
   voteDisabled: false,
   terminalMode: false,
+  typingSpeed: 28,
 };
 
 export default JokeCard;
