@@ -41,6 +41,36 @@ body {
   align-items: center;
 }
 
+/* Terminal theme for full app */
+.terminal-theme {
+  background: #000; /* black */
+  color: #33ff66;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  border: 4px solid #004400;
+}
+
+.terminal-header {
+  background: #002200;
+  color: #99ffb3;
+  padding: 6px 10px;
+  font-family: 'Press Start 2P', monospace;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #003300;
+}
+
+.terminal-theme .random-button {
+  background: transparent;
+  color: #33ff66;
+  border: 2px solid #003300;
+  box-shadow: none;
+}
+
+.terminal .smile-guy {
+  color: #33ff66;
+  background: #001100;
+}
+
+
 .crt-overlay {
   position: relative;
 }

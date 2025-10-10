@@ -164,7 +164,12 @@ function App() {
 
   return (
     <>
-      <div className="app-container">
+      <div className={`app-container ${terminalMode ? "terminal-theme" : ""}`}>
+        {terminalMode && (
+          <div className="terminal-header" aria-hidden>
+            Aje-Terminal v1.0  —  type Space to load a joke
+          </div>
+        )}
         <h1 className="app-title">모자람 없어도... 재미는 있으니까...</h1>
         <p className="app-subtitle">웃으면 너도 아저씨</p>
 
