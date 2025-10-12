@@ -5,5 +5,6 @@ import App from "../App.jsx";
 
 test("App renders title", () => {
   render(<App />);
-  expect(screen.getByText(/Aje/i)).toBeInTheDocument();
+  // App title uses Korean text; assert a substring to avoid fragile punctuation
+  expect(screen.getByText(/모자람 없어도/i)).toBeInTheDocument();
 });

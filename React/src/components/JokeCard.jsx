@@ -69,9 +69,7 @@ const JokeCard = ({
         ) : (
           <div className="answer-container" role="alert" aria-live="polite">
             <h3 className="answer">
-              <span className={`typing-text`}>
-                {typed}
-              </span>
+              <span className={`typing-text`}>{typed}</span>
             </h3>
           </div>
         )}
