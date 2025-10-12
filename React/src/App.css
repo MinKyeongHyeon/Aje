@@ -212,7 +212,10 @@ body {
 }
 
 /* CRT / scanline tweak: 가독성 위해 약간 투명도 낮춤, 텍스트 위에 겹치지 않도록 z-index */
-.crt-overlay { position: relative; overflow: hidden; }
+.crt-overlay {
+  position: relative;
+  overflow: hidden;
+}
 .crt-overlay .scanlines {
   z-index: 5;
   opacity: 0.18;
@@ -228,36 +231,7 @@ body {
 }
 
 /* 깜빡이는 커서 (질문 옆) - 터미널 모드에서만 보이도록 */
-.terminal-theme .terminal-cursor {
-  display: inline-block;
-  width: 10px;
-  height: 1.15em;
-  margin-left: 8px;
-  background: #33ff66;
-  vertical-align: middle;
-  border-radius: 2px;
-  animation: terminal-blink 1s steps(2, start) infinite;
-  box-shadow: 0 0 8px rgba(51,255,102,0.25);
-}
-
-/* 대체 caret 스타일 (텍스트 끝에 깜박임) - 사용 시 .typing-text.caret 적용 */
-.typing-text.caret::after {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 1.15em;
-  margin-left: 6px;
-  vertical-align: middle;
-  background: #33ff66;
-  animation: terminal-blink 1s steps(2,start) infinite;
-}
-
-/* keyframes */
-@keyframes terminal-blink {
-  0% { opacity: 1; transform: translateY(0); }
-  50% { opacity: 0.12; transform: translateY(0); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+/* cursor removed: no caret animation in terminal mode */
 
 /* 반응형: joke-container 내부 폭 제한으로 중앙 정렬 강화 */
 .joke-container {
@@ -268,7 +242,10 @@ body {
 }
 
 /* 컨트롤 그룹의 버튼들 중앙 배치 강제 */
-.controls-row { justify-content: center; align-items: center; }
+.controls-row {
+  justify-content: center;
+  align-items: center;
+}
 
 /* 터미널 모드일 때 버튼 스타일(더 레트로하게) */
 .terminal-theme .random-button {

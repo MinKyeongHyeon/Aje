@@ -22,8 +22,8 @@ const JokeCard = ({
   const [typed, setTyped] = useState("");
   const answerText = joke ? joke.answer : "";
 
-  const fullText = `A: ${answerText}`;
-  const isTyping = showAnswer && typed !== fullText;
+  // keep typing logic but do not render a separate caret/cursor
+  // typing effect uses `typed` state; removed caret/fullText since caret is disabled
 
   useEffect(() => {
     if (!joke || !showAnswer) {
@@ -54,7 +54,6 @@ const JokeCard = ({
         className={`question ${terminalMode ? "terminal-question" : ""}`}
       >
         Q: {joke.question}
-        {terminalMode && <span className="terminal-cursor" aria-hidden />}
       </h2>
 
       <div className="answer-section">
@@ -70,10 +69,9 @@ const JokeCard = ({
         ) : (
           <div className="answer-container" role="alert" aria-live="polite">
             <h3 className="answer">
-              <span className={`typing-text ${isTyping ? "caret" : ""}`}>
+              <span className={`typing-text`}>
                 {typed}
               </span>
-              {isTyping && <span className="terminal-cursor" aria-hidden />}
             </h3>
           </div>
         )}
