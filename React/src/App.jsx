@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import clickSfx from "./assets/sfx/click.mp3";
 import ajeData from "./data/Aje.json";
@@ -167,7 +167,7 @@ function App() {
       <div className={`app-container ${terminalMode ? "terminal-theme" : ""}`}>
         {terminalMode && (
           <div className="terminal-header" aria-hidden>
-            Aje-Terminal v1.0  —  type Space to load a joke
+            Aje-Terminal v1.0 — type Space to load a joke
           </div>
         )}
         <h1 className="app-title">모자람 없어도... 재미는 있으니까...</h1>
@@ -192,7 +192,10 @@ function App() {
             리셋
           </button>
           <button
-            onClick={() => { setTerminalMode((v) => !v); playClick(); }}
+            onClick={() => {
+              setTerminalMode((v) => !v);
+              playClick();
+            }}
             className="random-button"
             aria-label="터미널 모드 토글"
             style={{ marginLeft: 8 }}
@@ -250,7 +253,6 @@ function App() {
         <p className="joke-count">
           총 {ajeData.length}개의 아재개그가 수록되어있는 모음-집
         </p>
-
       </div>
       <footer className="app-footer">
         <div className="keyboard-hint">
