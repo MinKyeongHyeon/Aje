@@ -22,6 +22,9 @@ const JokeCard = ({
   const [typed, setTyped] = useState("");
   const answerText = joke ? joke.answer : "";
 
+  const fullText = `A: ${answerText}`;
+  const isTyping = showAnswer && typed !== fullText;
+
   useEffect(() => {
     if (!joke || !showAnswer) {
       setTyped("");
@@ -46,9 +49,12 @@ const JokeCard = ({
       role="article"
       aria-labelledby={`joke-question-${joke.id}`}
     >
-      <h2 id={`joke-question-${joke.id}`} className={`question ${terminalMode? 'terminal-question':''}`}>
+      <h2
+        id={`joke-question-${joke.id}`}
+        className={`question ${terminalMode ? "terminal-question" : ""}`}
+      >
         Q: {joke.question}
-        {terminalMode && <span className="terminal-cursor" aria-hidden>_</span>}
+        {terminalMode && <span className="terminal-cursor" aria-hidden />}
       </h2>
 
       <div className="answer-section">
@@ -63,7 +69,12 @@ const JokeCard = ({
           </button>
         ) : (
           <div className="answer-container" role="alert" aria-live="polite">
-            <h3 className="answer">{typed}{!typed.endsWith(joke.answer) && <span className="terminal-cursor">_</span>}</h3>
+            <h3 className="answer">
+              <span className={`typing-text ${isTyping ? "caret" : ""}`}>
+                {typed}
+              </span>
+              {isTyping && <span className="terminal-cursor" aria-hidden />}
+            </h3>
           </div>
         )}
       </div>
