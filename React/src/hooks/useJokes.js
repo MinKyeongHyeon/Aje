@@ -28,7 +28,7 @@ export const useJokes = (jokesData) => {
       const randomIndex = getRandomIndex(jokesData.length);
       setCurrentJoke(jokesData[randomIndex]);
       setShowAnswer(false);
-    } catch (err) {
+    } catch {
       setError("개그를 가져오는 중 오류가 발생했습니다.");
     } finally {
       setIsLoading(false);
