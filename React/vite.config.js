@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/Aje/",
+  base: "/",
   build: {
     // 번들 크기 최적화
     rollupOptions: {

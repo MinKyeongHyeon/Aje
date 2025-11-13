@@ -26,3 +26,60 @@
 }
 
 /* cursor removed: no visible caret in terminal mode */
+
+/* 정답 보기 버튼 스타일 */
+.answer-button {
+  background: linear-gradient(#c8ffdc, #7bd389);
+  color: #06220b;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: 3px solid #03561a;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #01320f;
+  text-transform: none;
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+  transition: all 0.1s ease;
+  margin: 16px 0;
+}
+
+.answer-button:hover:not([disabled]) {
+  background: linear-gradient(#aaffcc, #5ca368);
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #01320f;
+}
+
+.answer-button:active:not([disabled]) {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #01320f;
+}
+
+.answer-button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 터미널 모드에서 정답 보기 버튼 */
+.terminal-theme .answer-button {
+  background: transparent;
+  color: #33ff66;
+  border: 2px solid #003300;
+  box-shadow: none;
+  padding: 8px 14px;
+}
+
+.terminal-theme .answer-button:hover:not([disabled]) {
+  background: #002200;
+  color: #66ff99;
+  border-color: #006600;
+  box-shadow: 0 0 10px #00ff00;
+  transform: none;
+}
+
+.terminal-theme .answer-button[disabled] {
+  opacity: 0.4;
+  color: #226633;
+  border-color: #001100;
+}

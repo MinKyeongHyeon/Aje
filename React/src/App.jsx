@@ -229,21 +229,45 @@ function App() {
         )}
 
         {currentJoke ? (
-          <JokeCard
-            joke={currentJoke}
-            showAnswer={showAnswer}
-            onShowAnswer={handleShowAnswer}
-            isLoading={isLoading}
-            onLike={handleLike}
-            onDislike={handleDislike}
-            likeCount={
-              (votes[currentJoke.id] && votes[currentJoke.id].likes) || 0
-            }
-            dislikeCount={
-              (votes[currentJoke.id] && votes[currentJoke.id].dislikes) || 0
-            }
-            voteDisabled={!!voteDisabledIds[currentJoke.id]}
-          />
+          <>
+            <JokeCard
+              joke={currentJoke}
+              showAnswer={showAnswer}
+              onShowAnswer={handleShowAnswer}
+              isLoading={isLoading}
+              onLike={handleLike}
+              onDislike={handleDislike}
+              likeCount={
+                (votes[currentJoke.id] && votes[currentJoke.id].likes) || 0
+              }
+              dislikeCount={
+                (votes[currentJoke.id] && votes[currentJoke.id].dislikes) || 0
+              }
+              voteDisabled={!!voteDisabledIds[currentJoke.id]}
+              terminalMode={terminalMode}
+            />
+
+            {/* 개그 확인 후 다음 개그 버튼 */}
+            <div className="next-joke-section">
+              <button
+                onClick={handleGetRandom}
+                className="random-button next-joke-button"
+                aria-label="다음 아재개그 보기"
+                disabled={isLoading || randomDisabled}
+              >
+                {isLoading ? "로딩 중..." : "🎭 다음 개그 보기"}
+              </button>
+              <button
+                onClick={resetJoke}
+                className="random-button secondary-button"
+                aria-label="처음으로 돌아가기"
+                disabled={isLoading || randomDisabled}
+                style={{ marginLeft: 12 }}
+              >
+                🏠 처음으로
+              </button>
+            </div>
+          </>
         ) : (
           <p className="hint">
             개그를 보려면 위 버튼을 누르거나 스페이스바를 눌러보세요.

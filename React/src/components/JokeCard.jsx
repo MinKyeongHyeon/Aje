@@ -45,7 +45,7 @@ const JokeCard = ({
 
   return (
     <div
-      className="joke-container"
+      className={`joke-container ${terminalMode ? "terminal-theme" : ""}`}
       role="article"
       aria-labelledby={`joke-question-${joke.id}`}
     >
