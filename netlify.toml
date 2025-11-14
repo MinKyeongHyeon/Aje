@@ -1,0 +1,9 @@
+[build]
+  base = "React"
+  command = "npm run build"
+  publish = "React/dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
