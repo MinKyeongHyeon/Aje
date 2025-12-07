@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,11 +7,15 @@
 }
 
 :root {
-  --bg-1: #071029; /* deep navy */
-  --bg-2: #041726;
-  --accent: #7bd389; /* soft green */
-  --muted: #9fc8e6;
-  --text: #eaf6ff;
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #0f3460;
+  --accent: #e94560;
+  --accent-hover: #ff6b6b;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --success: #4ade80;
+  --border-radius: 16px;
 }
 
 html,
@@ -20,321 +23,172 @@ body,
 #root {
   height: 100%;
 }
+
 body {
-  font-family: "Noto Serif KR", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Noto Sans KR", sans-serif;
-  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  color: var(--text-primary);
+  min-height: 100vh;
 }
 
 .app-container {
-  max-width: 980px;
-  margin: 32px auto;
-  padding: 28px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-/* Terminal theme for full app */
-.terminal-theme {
-  background: #000; /* black */
-  color: #33ff66;
-  font-family: "Courier New", "Lucida Console", monospace;
-  border: 4px solid #004400;
-}
-
-.terminal-header {
-  background: #002200;
-  color: #99ffb3;
-  padding: 6px 10px;
-  font-family: "Press Start 2P", monospace;
-  margin-bottom: 12px;
-  border-bottom: 2px solid #003300;
-}
-
-.terminal-theme .random-button {
-  background: transparent;
-  color: #33ff66;
-  border: 2px solid #003300;
-  box-shadow: none;
-}
-
-.terminal .smile-guy {
-  color: #33ff66;
-  background: #001100;
-}
-
-.crt-overlay {
-  position: relative;
-}
-
-.scanlines {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.02) 0px,
-    rgba(0, 0, 0, 0.04) 1px
-  );
-  mix-blend-mode: overlay;
-}
-
-.smile-wrap.terminal {
-  background: #000;
-  color: #00ff00;
-  padding: 12px;
-  border-radius: 6px;
-}
-
-.app-title {
-  font-family: "Press Start 2P", monospace;
+/* Header */
+.app-header {
+  text-align: center;
+  margin-bottom: 32px;
 }
 
 .app-title {
   font-size: 28px;
-  color: var(--text);
-  margin-bottom: 6px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
+
 .app-subtitle {
-  color: var(--muted);
-  margin-bottom: 18px;
+  font-size: 16px;
+  color: var(--text-secondary);
 }
 
-.controls-row {
+/* Main Content */
+.main-content {
+  flex: 1;
   display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 20px;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 760px;
 }
-.random-button {
-  background: linear-gradient(#c8ffdc, #7bd389);
-  color: #06220b;
-  padding: 10px 18px;
-  border-radius: 4px;
-  border: 3px solid #03561a;
-  font-weight: 800;
+
+/* Welcome Section */
+.welcome-section {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.welcome-emoji {
+  font-size: 80px;
+  margin-bottom: 24px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.welcome-text {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+/* Buttons */
+.primary-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 6px 0 #01320f;
-  text-transform: none;
-  font-family: "Press Start 2P", monospace;
-  transition: all 0.1s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
 }
 
-.random-button:hover:not([disabled]) {
-  background: linear-gradient(#aaffcc, #5ca368);
-  transform: translateY(2px);
-  box-shadow: 0 4px 0 #01320f;
+.primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
 }
 
-.random-button:active:not([disabled]) {
-  transform: translateY(4px);
-  box-shadow: 0 2px 0 #01320f;
+.primary-button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
-.random-button[disabled] {
+.primary-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  transform: none;
 }
 
-.smile-guy {
-  font-family: monospace;
-  color: #ffd;
-  white-space: pre;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 6px;
-  margin: 18px 0;
+.primary-button.large {
+  padding: 20px 48px;
+  font-size: 20px;
 }
 
-.joke-container {
-  padding: 18px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-  border-radius: 8px;
-  margin-bottom: 16px;
-}
-.joke-question {
-  color: var(--muted);
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-.joke-answer {
-  font-weight: 700;
-  color: var(--text);
-  background: rgba(10, 20, 10, 0.15);
-  padding: 12px;
-  border-radius: 6px;
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
 }
 
-.joke-count {
+/* Notice & Error */
+.notice,
+.error-message {
   text-align: center;
-  color: #a9d6ff;
-  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
 }
 
 .notice {
-  text-align: center;
-  color: #ffd;
-  margin-bottom: 8px;
+  background: rgba(74, 222, 128, 0.15);
+  color: var(--success);
 }
+
 .error-message {
+  background: rgba(233, 69, 96, 0.15);
+  color: var(--accent);
+}
+
+/* Footer */
+.app-footer {
   text-align: center;
-  color: #ffb3b3;
+  padding: 24px 0;
+  margin-top: auto;
+}
+
+.joke-count {
+  font-size: 14px;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
-@media (max-width: 720px) {
-  .controls-row {
-    flex-direction: column;
+.keyboard-hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 24px;
   }
-  .random-button {
-    width: 100%;
+
+  .welcome-emoji {
+    font-size: 60px;
   }
 
-  .next-joke-section {
-    flex-direction: column;
-    gap: 8px;
+  .primary-button {
+    padding: 14px 28px;
+    font-size: 16px;
   }
 
-  .next-joke-section .random-button {
-    width: 100%;
-    margin-left: 0 !important;
+  .primary-button.large {
+    padding: 16px 36px;
+    font-size: 18px;
   }
 }
-
-/* ===== 터미널 모드 보완 및 커서/타이핑 스타일 추가 ===== */
-
-/* 통일: 터미널 모드 클래스는 .terminal-theme 로 사용 */
-.terminal-theme {
-  background: #000;
-  color: #33ff66;
-  font-family: "Courier New", "Lucida Console", monospace;
-  border: 4px solid #004400;
-}
-
-/* smile / art in terminal */
-.terminal-theme .smile-guy,
-.terminal-theme .smile-wrap {
-  color: #33ff66;
-  background: #001100;
-}
-
-/* CRT / scanline tweak: 가독성 위해 약간 투명도 낮춤, 텍스트 위에 겹치지 않도록 z-index */
-.crt-overlay {
-  position: relative;
-  overflow: hidden;
-}
-.crt-overlay .scanlines {
-  z-index: 5;
-  opacity: 0.18;
-  mix-blend-mode: overlay;
-}
-
-/* 타이핑 텍스트 컨테이너 */
-.typing-text {
-  white-space: pre-wrap;
-  font-family: inherit;
-  display: inline-block;
-  color: inherit;
-}
-
-/* 깜빡이는 커서 (질문 옆) - 터미널 모드에서만 보이도록 */
-/* cursor removed: no caret animation in terminal mode */
-
-/* 반응형: joke-container 내부 폭 제한으로 중앙 정렬 강화 */
-.joke-container {
-  max-width: 860px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 컨트롤 그룹의 버튼들 중앙 배치 강제 */
-.controls-row {
-  justify-content: center;
-  align-items: center;
-}
-
-/* 터미널 모드일 때 버튼 스타일(더 레트로하게) */
-.terminal-theme .random-button {
-  background: transparent;
-  color: #33ff66;
-  border: 2px solid #003300;
-  box-shadow: none;
-  padding: 8px 14px;
-  font-family: "Press Start 2P", monospace;
-  transition: all 0.2s ease;
-}
-
-.terminal-theme .random-button:hover:not([disabled]) {
-  background: #002200;
-  color: #66ff99;
-  border-color: #006600;
-  box-shadow: 0 0 10px #00ff00;
-}
-
-.terminal-theme .random-button[disabled] {
-  opacity: 0.4;
-  color: #226633;
-  border-color: #001100;
-  cursor: not-allowed;
-}
-
-/* 다음 개그 섹션 스타일 */
-.next-joke-section {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
-  margin: 24px 0 16px 0;
-  flex-wrap: wrap;
-}
-
-.next-joke-button {
-  font-size: 16px;
-  min-width: 180px;
-}
-
-.secondary-button {
-  background: linear-gradient(#e0e0e0, #b0b0b0);
-  color: #333;
-  border-color: #888;
-  box-shadow: 0 6px 0 #666;
-}
-
-.secondary-button:hover:not([disabled]) {
-  background: linear-gradient(#d0d0d0, #a0a0a0);
-  box-shadow: 0 4px 0 #666;
-}
-
-/* 터미널 모드에서 보조 버튼 */
-.terminal-theme .secondary-button {
-  background: transparent;
-  color: #999999;
-  border-color: #333333;
-  box-shadow: none;
-}
-
-.terminal-theme .secondary-button:hover:not([disabled]) {
-  background: #111111;
-  color: #bbbbbb;
-  border-color: #555555;
-  box-shadow: 0 0 8px #666666;
-}
-
-/* 끝 */

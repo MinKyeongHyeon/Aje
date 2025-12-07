@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./JokeCard.css";
 
@@ -15,46 +15,23 @@ const JokeCard = ({
   likeCount,
   dislikeCount,
   voteDisabled,
-  terminalMode,
-  typingSpeed,
 }) => {
-  // typing effect state (hooks must be called unconditionally)
-  const [typed, setTyped] = useState("");
-  const answerText = joke ? joke.answer : "";
-
-  // keep typing logic but do not render a separate caret/cursor
-  // typing effect uses `typed` state; removed caret/fullText since caret is disabled
-
-  useEffect(() => {
-    if (!joke || !showAnswer) {
-      setTyped("");
-      return;
-    }
-    let i = 0;
-    const text = `A: ${answerText}`;
-    setTyped("");
-    const id = setInterval(() => {
-      i += 1;
-      setTyped(text.slice(0, i));
-      if (i >= text.length) clearInterval(id);
-    }, typingSpeed);
-    return () => clearInterval(id);
-  }, [showAnswer, answerText, joke, typingSpeed]);
-
   if (!joke) return null;
+
+  const answerText = joke.answer;
 
   return (
     <div
-      className={`joke-container ${terminalMode ? "terminal-theme" : ""}`}
+      className="joke-card"
       role="article"
       aria-labelledby={`joke-question-${joke.id}`}
     >
-      <h2
-        id={`joke-question-${joke.id}`}
-        className={`question ${terminalMode ? "terminal-question" : ""}`}
-      >
-        Q: {joke.question}
-      </h2>
+      <div className="question-section">
+        <span className="question-label">Q.</span>
+        <h2 id={`joke-question-${joke.id}`} className="question">
+          {joke.question}
+        </h2>
+      </div>
 
       <div className="answer-section">
         {!showAnswer ? (
@@ -64,36 +41,36 @@ const JokeCard = ({
             aria-label="정답 보기"
             disabled={isLoading}
           >
-            정답 보기
+            🤔 정답 보기
           </button>
         ) : (
           <div className="answer-container" role="alert" aria-live="polite">
-            <h3 className="answer">
-              <span className={`typing-text`}>{typed}</span>
-            </h3>
+            <span className="answer-label">A.</span>
+            <p className="answer">{answerText}</p>
           </div>
         )}
       </div>
 
-      <div className="vote-row" aria-hidden={false}>
-        <button
-          className="vote-button like"
-          onClick={() => onLike && onLike(joke.id)}
-          aria-label={`이 개그 좋아요 ${likeCount}개`}
-          disabled={voteDisabled}
-        >
-          👍 {likeCount}
-        </button>
-
-        <button
-          className="vote-button dislike"
-          onClick={() => onDislike && onDislike(joke.id)}
-          aria-label={`이 개그 싫어요 ${dislikeCount}개`}
-          disabled={voteDisabled}
-        >
-          👎 {dislikeCount}
-        </button>
-      </div>
+      {showAnswer && (
+        <div className="vote-row">
+          <button
+            className="vote-button like"
+            onClick={() => onLike && onLike(joke.id)}
+            aria-label={`좋아요 ${likeCount}개`}
+            disabled={voteDisabled}
+          >
+            👍 {likeCount}
+          </button>
+          <button
+            className="vote-button dislike"
+            onClick={() => onDislike && onDislike(joke.id)}
+            aria-label={`싫어요 ${dislikeCount}개`}
+            disabled={voteDisabled}
+          >
+            👎 {dislikeCount}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -112,8 +89,6 @@ JokeCard.propTypes = {
   likeCount: PropTypes.number,
   dislikeCount: PropTypes.number,
   voteDisabled: PropTypes.bool,
-  terminalMode: PropTypes.bool,
-  typingSpeed: PropTypes.number,
 };
 
 JokeCard.defaultProps = {
@@ -124,8 +99,6 @@ JokeCard.defaultProps = {
   likeCount: 0,
   dislikeCount: 0,
   voteDisabled: false,
-  terminalMode: false,
-  typingSpeed: 28,
 };
 
 export default JokeCard;

@@ -1,85 +1,151 @@
+/* Joke Card */
+.joke-card {
+  background: rgba(15, 52, 96, 0.8);
+  border-radius: 20px;
+  padding: 32px 24px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Question */
+.question-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.question-label {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffd93d;
+  flex-shrink: 0;
+}
+
+.question {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+/* Answer Section */
+.answer-section {
+  margin-bottom: 24px;
+}
+
+.answer-button {
+  width: 100%;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.answer-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+}
+
+.answer-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Answer */
+.answer-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(74, 222, 128, 0.1);
+  border-radius: 12px;
+  border-left: 4px solid #4ade80;
+}
+
+.answer-label {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.answer {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #4ade80;
+}
+
+/* Vote Row */
 .vote-row {
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-top: 16px;
 }
 
 .vote-button {
-  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
   font-size: 16px;
-  border: 2px solid #00ff00;
-  background: #002000;
-  color: #ffff00;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: bold;
+  transition: all 0.2s ease;
 }
 
-.vote-button.like:hover {
-  background: #005000;
-  box-shadow: 0 0 6px #00ff00;
+.vote-button.like {
+  background: rgba(74, 222, 128, 0.2);
+  color: #4ade80;
 }
 
-.vote-button.dislike:hover {
-  background: #500000;
-  box-shadow: 0 0 6px #ff0000;
+.vote-button.like:hover:not(:disabled) {
+  background: rgba(74, 222, 128, 0.3);
+  transform: scale(1.05);
 }
 
-/* cursor removed: no visible caret in terminal mode */
-
-/* 정답 보기 버튼 스타일 */
-.answer-button {
-  background: linear-gradient(#c8ffdc, #7bd389);
-  color: #06220b;
-  padding: 10px 18px;
-  border-radius: 4px;
-  border: 3px solid #03561a;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 6px 0 #01320f;
-  text-transform: none;
-  font-family: "Press Start 2P", monospace;
-  font-size: 14px;
-  transition: all 0.1s ease;
-  margin: 16px 0;
+.vote-button.dislike {
+  background: rgba(233, 69, 96, 0.2);
+  color: #e94560;
 }
 
-.answer-button:hover:not([disabled]) {
-  background: linear-gradient(#aaffcc, #5ca368);
-  transform: translateY(2px);
-  box-shadow: 0 4px 0 #01320f;
+.vote-button.dislike:hover:not(:disabled) {
+  background: rgba(233, 69, 96, 0.3);
+  transform: scale(1.05);
 }
 
-.answer-button:active:not([disabled]) {
-  transform: translateY(4px);
-  box-shadow: 0 2px 0 #01320f;
-}
-
-.answer-button[disabled] {
-  opacity: 0.6;
+.vote-button:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
-  transform: none;
 }
 
-/* 터미널 모드에서 정답 보기 버튼 */
-.terminal-theme .answer-button {
-  background: transparent;
-  color: #33ff66;
-  border: 2px solid #003300;
-  box-shadow: none;
-  padding: 8px 14px;
-}
+/* Responsive */
+@media (max-width: 480px) {
+  .joke-card {
+    padding: 24px 20px;
+  }
 
-.terminal-theme .answer-button:hover:not([disabled]) {
-  background: #002200;
-  color: #66ff99;
-  border-color: #006600;
-  box-shadow: 0 0 10px #00ff00;
-  transform: none;
-}
+  .question-label,
+  .answer-label {
+    font-size: 20px;
+  }
 
-.terminal-theme .answer-button[disabled] {
-  opacity: 0.4;
-  color: #226633;
-  border-color: #001100;
+  .question,
+  .answer {
+    font-size: 18px;
+  }
+
+  .vote-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
